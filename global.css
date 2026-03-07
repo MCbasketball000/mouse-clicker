@@ -1,0 +1,22 @@
+button {
+    background-color: #505050;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    writing-mode: horizontal-tb;
+    white-space: nowrap;
+}
+div {
+    color: white;
+    padding: 0px 5px;
+    text-align: center;
+    font-size: 16px;
+}
+.highlight {
+  background-color: #707070;
+  color: white;
+}
+
