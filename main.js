@@ -15,10 +15,17 @@ async function initregister()
 }
 
 
-function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content){
+function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content,postype){
     var newDiv = document.createElement(type);
-    pos1 = pos1+'px';
-    pos2 = pos2+'px';
+    console.log(postype);
+    if(postype == undefined){
+        pos1 = pos1+'px';
+        pos2 = pos2+'px';
+    }
+    else{
+        pos1 = pos1+postype;
+        pos2 = pos2+postype;
+    }
     if(color != undefined){
         newDiv.style.color = color;
     }
@@ -53,10 +60,14 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content)
     }
     if(type == "button")
     {
+        console.log('fuck');
+        console.log(widthz);
         if(widthz != undefined){
+            widthz = widthz+'px';
             newDiv.style.width = widthz;
         }
         if(lengthz != undefined){
+            lengthz = lengthz+'px';
             newDiv.style.height = lengthz;
         }
         newDiv.style.height = lengthz;
@@ -66,15 +77,22 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content)
         newDiv.addEventListener("mouseleave", function(){
             this.classList.remove('highlight');
         });
-        newDiv.addEventListener("click", use(opcode));
+        newDiv.addEventListener("click", function(){
+            console.log(opcode);
+            use(opcode)
+        });
     }
     document.body.appendChild(newDiv);
 }
 function use(opcode){
-    ;
+    console.log(opcode);
+    if(opcode == 'press'){
+        resource['point'] += 1;
+        document.getElementById("pointresource").innerHTML=resource['point'];
+    }
 }
 function refreshbutton(){
-    ;
+    CreateElementBy("button",1,40,40,'press','#ffffff',200,300,undefined,'%');
 }
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
