@@ -1,0 +1,17 @@
+{
+    "click":{
+        "type":"point",
+        "basic":"100",
+        "mul":"1.1"
+    },
+    "autoclick":{
+        "type":"point",
+        "basic":"500",
+        "mul":"1.1"
+    },
+    "autoclickup":{
+        "type":"point",
+        "basic":"1000",
+        "mul":"1.1"
+    }
+}

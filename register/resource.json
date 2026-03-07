@@ -1,5 +1,8 @@
 {
-    "garbage":{
-        "chance":"50"
+    "point":{
+        "color":"#ffffff"
+    },
+    "resetpoint":{
+        "color":"#ff0000"
     }
 }

@@ -66,9 +66,6 @@ function use(opcode){
 function refreshbutton(){
     ;
 }
-function getLockedElement(){
-    ;
-}
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
     keys.forEach(function(key, index) {
