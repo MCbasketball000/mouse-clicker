@@ -97,8 +97,8 @@ function refreshbutton(){
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
     keys.forEach(function(key, index) {
-        CreateElementBy("div",1,index*20,0,key,resourceRegister[key]['color'])
-        CreateElementBy("div",1,index*20,100,key+'resource',resourceRegister[key]['color'],NaN,NaN,0)
+        CreateElementBy("div",1,index*35,0,key,resourceRegister[key]['color'])
+        CreateElementBy("div",1,index*35,100,key+'resource',resourceRegister[key]['color'],NaN,NaN,0)
         console.log(index);
     });
 }
