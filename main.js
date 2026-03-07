@@ -1,9 +1,10 @@
 function initall(){
     document.body.style.backgroundColor = "#101010";
 }
+function wait(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
 //一些乱七八糟的读取
-var resourceRegister;//注册表变量
-var haveData;//游戏数据变量
 async function initregister()
 {
     const response = await fetch("./register/resource.json");
@@ -82,21 +83,45 @@ function refreshResourse(){
         CreateElementBy("div",1,index*20,100,key+'resource',resourceRegister[key]['color'],NaN,NaN,0)
         console.log(index);
     });
+}
+function updateResource(){
+
+} 
+function checkResource(){
+    var keys = Object.keys(resourceRegister);
+    keys.forEach(function(key, index) {
+        if(resource[key] == undefined){
+            resource[key] = 0;
+        }
+    });
+}   
+function checkUpgrades(){
+    ;
 }    
-function main(fuck){
+async function main(fuck){
     //存档部分（本来想单独写成一个文件的但是不会导入就算了
     function load(){
         haveData = localStorage.getItem("haveData");
+        resource = JSON.parse(localStorage.getItem("resource"));
+        checkResource()
+        upgrades = JSON.parse(localStorage.getItem("upgrades"));
+        checkUpgrades();
     }
     function save(){
         localStorage.setItem("haveData", haveData);
+        localStorage.setItem("resource", JSON.stringify(resource));
+        localStorage.setItem("upgrades", JSON.stringify(upgrades));
     }
     function init(){
         haveData = true;
+        resource = {};
+        checkResource();
+        upgrades = {};
+        checkUpgrades();
         save();
     }
     load();
-    if(haveData != true){
+    if(haveData != 'true'){
         init();
     }
     //-------------------------------------------------//
@@ -106,6 +131,9 @@ function main(fuck){
     refreshbutton();
     refreshResourse();
     console.log(resourceRegister);
+    while(true){
+        await wait(1000);
+    }
 }
 async function run(){
     initall();
