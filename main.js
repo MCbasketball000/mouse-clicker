@@ -14,11 +14,13 @@ async function initregister()
 }
 
 
-function CreateElementBy(type,pos,pos1,pos2,opcode,lengthz,widthz,content){
+function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content){
     var newDiv = document.createElement(type);
     pos1 = pos1+'px';
     pos2 = pos2+'px';
-    console.log(pos1);
+    if(color != undefined){
+        newDiv.style.color = color;
+    }
     if(content != undefined){
         newDiv.textContent = content;
     }
@@ -50,7 +52,12 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,lengthz,widthz,content){
     }
     if(type == "button")
     {
-        newDiv.style.width = widthz;
+        if(widthz != undefined){
+            newDiv.style.width = widthz;
+        }
+        if(lengthz != undefined){
+            newDiv.style.height = lengthz;
+        }
         newDiv.style.height = lengthz;
         newDiv.addEventListener("mouseenter", function(){
             this.classList.add('highlight');
@@ -71,7 +78,8 @@ function refreshbutton(){
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
     keys.forEach(function(key, index) {
-        CreateElementBy("div",1,index*20,0,key)
+        CreateElementBy("div",1,index*20,0,key,resourceRegister[key]['color'])
+        CreateElementBy("div",1,index*20,100,key+'resource',resourceRegister[key]['color'],NaN,NaN,0)
         console.log(index);
     });
 }    
