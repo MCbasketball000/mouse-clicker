@@ -21,7 +21,7 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,lengthz,widthz,content){
         newDiv.textContent = content;
     }
     else{
-        newDiv.textContent = languageRegister.opcode;
+        newDiv.textContent = languageRegister[opcode];
     }
     newDiv.style.position = "absolute";
     newDiv.id = opcode;
@@ -71,8 +71,9 @@ function getLockedElement(){
 }
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
-    keys.forEach(function(element, index) {
-        CreateElementBy("div",1,index*10,0,JSON.stringify(resourceRegister[element]))
+    keys.forEach(function(key, index) {
+        CreateElementBy("div",1,index*10,0,key)
+        console.log(index);
     });
 }    
 function main(fuck){
@@ -101,6 +102,7 @@ function main(fuck){
     console.log(resourceRegister);
 }
 async function run(){
+    initall();
     const temp = await initregister();
     main(temp);
 }
