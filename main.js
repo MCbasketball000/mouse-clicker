@@ -1,5 +1,7 @@
 function initall(){
     document.body.style.backgroundColor = "#101010";
+    CreateElementBy("div",4,0,0,'author','#ffffff',NaN,NaN,'作者：MC篮球');
+    CreateElementBy("div",4,0,250,'github','#a8da99',NaN,NaN,'Github');
 }
 function wait(ms) {
 return new Promise(resolve => setTimeout(resolve, ms));
@@ -77,18 +79,22 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content,
         newDiv.addEventListener("mouseleave", function(){
             this.classList.remove('highlight');
         });
-        newDiv.addEventListener("click", function(){
-            console.log(opcode);
-            use(opcode)
-        });
     }
+    newDiv.addEventListener("click", function(){
+        use(opcode)
+    });
     document.body.appendChild(newDiv);
 }
 function use(opcode){
-    console.log(opcode);
     if(opcode == 'press'){
         resource['point'] += 1;
         document.getElementById("pointresource").innerHTML=resource['point'];
+    }
+    if(opcode == 'author'){
+        window.open('https://space.bilibili.com/3546613752531863?spm_id_from=333.1369.0.0', '_blank');
+    }
+    if(opcode == 'github'){
+        window.open('https://space.bilibili.com/3546613752531863?spm_id_from=333.1369.0.0', '_blank');
     }
 }
 function refreshbutton(){
