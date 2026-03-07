@@ -14,9 +14,11 @@ async function initregister()
 }
 
 
-
 function CreateElementBy(type,pos,pos1,pos2,opcode,lengthz,widthz,content){
     var newDiv = document.createElement(type);
+    pos1 = pos1+'px';
+    pos2 = pos2+'px';
+    console.log(pos1);
     if(content != undefined){
         newDiv.textContent = content;
     }
@@ -69,7 +71,7 @@ function refreshbutton(){
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
     keys.forEach(function(key, index) {
-        CreateElementBy("div",1,index*10,0,key)
+        CreateElementBy("div",1,index*20,0,key)
         console.log(index);
     });
 }    
@@ -92,7 +94,6 @@ function main(fuck){
     //-------------------------------------------------//
 
     console.log(fuck);
-    console.log(resourceRegister.garbage);
     
     refreshbutton();
     refreshResourse();
