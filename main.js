@@ -94,7 +94,7 @@ function use(opcode){
         window.open('https://space.bilibili.com/3546613752531863?spm_id_from=333.1369.0.0', '_blank');
     }
     if(opcode == 'github'){
-        window.open('https://space.bilibili.com/3546613752531863?spm_id_from=333.1369.0.0', '_blank');
+        window.open('https://github.com/MCbasketball000/mouse-clicker', '_blank');
     }
 }
 function refreshbutton(){
