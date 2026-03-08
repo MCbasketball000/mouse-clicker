@@ -150,9 +150,13 @@ async function main(fuck){
     function load(){
         haveData = localStorage.getItem("haveData");
         resource = JSON.parse(localStorage.getItem("resource"));
-        checkResource()
+        if(haveData == 'true'){
+            checkResource()
+        }
         upgrades = JSON.parse(localStorage.getItem("upgrades"));
-        checkUpgrades();
+        if(haveData == 'true'){
+            checkUpgrades();
+        }
     }
     function save(){
         localStorage.setItem("haveData", haveData);
