@@ -169,7 +169,9 @@ async function main(fuck){
     }
     load();
     if(haveData != 'true'){
+        console.log("fucklocalstorage")
         init();
+        console.log(haveData)
     }
     //-------------------------------------------------//
 
