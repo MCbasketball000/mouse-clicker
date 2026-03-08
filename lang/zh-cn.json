@@ -1,5 +1,7 @@
 {
     "point":"分数",
     "resetpoint":"重置分",
-    "press":"点击！"
+    "press":"点击！",
+    "click":"点击升级",
+    "autoclick":"自动点击"
 }

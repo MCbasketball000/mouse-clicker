@@ -13,6 +13,8 @@ async function initregister()
     resourceRegister = await response.json();
     const response2 = await fetch("./lang/zh-cn.json");
     languageRegister = await response2.json();
+    const response3 = await fetch("./register/upgrade.json");
+    upgradeRegister = await response3.json()
     return 0;
 }
 
@@ -99,6 +101,11 @@ function use(opcode){
 }
 function refreshbutton(){
     CreateElementBy("button",1,40,40,'press','#ffffff',200,300,undefined,'%');
+    var keys = Object.keys(upgradeRegister);
+    keys.forEach(function(key, index) {
+        CreateElementBy("button",1,100+index*75,15,key,undefined,45,120)
+        console.log(index);
+    });
 }
 function refreshResourse(){
     var keys = Object.keys(resourceRegister);
@@ -109,7 +116,10 @@ function refreshResourse(){
     });
 }
 function updateResource(){
-
+    var keys = Object.keys(resourceRegister);
+    keys.forEach(function(key, index) {
+        document.getElementById(key+'resource').innerHTML=resource[key];
+    });
 } 
 function checkResource(){
     var keys = Object.keys(resourceRegister);
@@ -120,7 +130,20 @@ function checkResource(){
     });
 }   
 function checkUpgrades(){
-    ;
+    var keys = Object.keys(upgrades);
+    keys.forEach(function(key, index) {
+        if(resource[key] == undefined){
+            resource[key] = 0;
+        }
+    });
+}
+function addresource(){
+    var keys = Object.keys(upgrades);
+    keys.forEach(function(key, index) {
+        if(upgrades[key] == undefined){
+            resource[key] = 0;
+        }
+    });
 }    
 async function main(fuck){
     //存档部分（本来想单独写成一个文件的但是不会导入就算了
@@ -156,6 +179,9 @@ async function main(fuck){
     refreshResourse();
     console.log(resourceRegister);
     while(true){
+        addresource()
+        updateResource();
+        save();
         await wait(1000);
     }
 }
