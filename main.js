@@ -4,7 +4,7 @@ function initall(){
     CreateElementBy("div",4,0,250,'github','#a8da99',NaN,NaN,'Github');
 }
 function wait(ms) {
-return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 //一些乱七八糟的读取
 async function initregister()
