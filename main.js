@@ -21,7 +21,6 @@ async function initregister()
 
 function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content,postype){
     var newDiv = document.createElement(type);
-    console.log(postype);
     if(postype == undefined){
         pos1 = pos1+'px';
         pos2 = pos2+'px';
@@ -96,6 +95,32 @@ function use(opcode){
     if(opcode == 'github'){
         window.open('https://github.com/MCbasketball000/mouse-clicker', '_blank');
     }
+    if(upgradeList.includes(opcode)){
+        try2upgrade(opcode);
+    }
+}
+function try2upgrade(opcode){
+    if(checkUpdateResource(opcode)){
+        deleteresource(opcode);
+        upgrades[opcode] += 1;
+    }
+}
+function deleteresource(opcode){
+    var keys = Object.keys(upgradeRegister[opcode].resource);
+    keys.forEach(function(key, index) {
+        resource[key] -= upgradeRegister[opcode].resource[key].basic;
+    });
+    updateResource();
+}
+function checkUpdateResource(opcode){
+    var canUpdate = true
+    var keys = Object.keys(upgradeRegister[opcode].resource);
+    keys.forEach(function(key, index) {
+        if(resource[key] < upgradeRegister[opcode].resource[key].basic){
+            canUpdate = false;
+        }
+    });
+    return canUpdate;
 }
 function refreshbutton(){
     upgradeList = [];
@@ -128,10 +153,10 @@ function checkResource(){
     });
 }   
 function checkUpgrades(){
-    var keys = Object.keys(upgrades);
+    var keys = Object.keys(upgradeRegister);
     keys.forEach(function(key, index) {
-        if(resource[key] == undefined){
-            resource[key] = 0;
+        if(upgrades[key] == undefined){
+            upgrades[key] = 0;
         }
     });
 }
