@@ -1,16 +1,24 @@
 {
     "click":{
-        "type":"point",
-        "basic":"100",
-        "mul":"1.1",
+        "resource":{
+            "point":{
+                "basic":"100",
+                "mul":"1.1"
+            }
+        },
+        "color":"#ffffff",
         "affect":{
             "click":"1"
         }
     },
     "autoclick":{
-        "type":"point",
-        "basic":"500",
-        "mul":"1.1",
+        "resource":{
+            "point":{
+                "basic":"500",
+                "mul":"1.1"
+            }
+        },
+        "color":"#ffffff",
         "affect":{
             "autoclick":"1"
         }

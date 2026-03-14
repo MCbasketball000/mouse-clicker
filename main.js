@@ -64,8 +64,6 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content,
     }
     if(type == "button")
     {
-        console.log('fuck');
-        console.log(widthz);
         if(widthz != undefined){
             widthz = widthz+'px';
             newDiv.style.width = widthz;
@@ -100,11 +98,12 @@ function use(opcode){
     }
 }
 function refreshbutton(){
+    upgradeList = [];
     CreateElementBy("button",1,40,40,'press','#ffffff',200,300,undefined,'%');
     var keys = Object.keys(upgradeRegister);
     keys.forEach(function(key, index) {
-        CreateElementBy("button",1,100+index*75,15,key,undefined,45,120)
-        console.log(index);
+        upgradeList.push(key);
+        CreateElementBy("button",1,100+index*75,15,key,upgradeRegister[key].color,45,120)
     });
 }
 function refreshResourse(){
@@ -112,7 +111,6 @@ function refreshResourse(){
     keys.forEach(function(key, index) {
         CreateElementBy("div",1,index*35,0,key,resourceRegister[key]['color'])
         CreateElementBy("div",1,index*35,150,key+'resource',resourceRegister[key]['color'],NaN,NaN,0)
-        console.log(index);
     });
 }
 function updateResource(){
