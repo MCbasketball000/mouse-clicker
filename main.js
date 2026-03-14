@@ -145,7 +145,7 @@ function addresource(){
         }
     });
 }    
-async function main(fuck){
+async function main(){
     //存档部分（本来想单独写成一个文件的但是不会导入就算了
     function load(){
         haveData = localStorage.getItem("haveData");
@@ -173,17 +173,13 @@ async function main(fuck){
     }
     load();
     if(haveData != 'true'){
-        console.log("fucklocalstorage")
         init();
-        console.log(haveData)
     }
     //-------------------------------------------------//
 
-    console.log(fuck);
     
     refreshbutton();
     refreshResourse();
-    console.log(resourceRegister);
     while(true){
         addresource()
         updateResource();
@@ -193,7 +189,7 @@ async function main(fuck){
 }
 async function run(){
     initall();
-    const temp = await initregister();
-    main(temp);
+    await initregister();
+    main();
 }
 run();
