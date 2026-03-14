@@ -108,7 +108,7 @@ function try2upgrade(opcode){
 function deleteresource(opcode){
     var keys = Object.keys(upgradeRegister[opcode].resource);
     keys.forEach(function(key, index) {
-        resource[key] -= upgradeRegister[opcode].resource[key].basic * Math.pow(upgradeRegister[opcode].resource[key].basic,upgrades[opcode]);
+        resource[key] -= Math.floor(upgradeRegister[opcode].resource[key].basic * Math.pow(upgradeRegister[opcode].resource[key].mul,upgrades[opcode]));
     });
     updateResource();
 }
@@ -116,7 +116,7 @@ function checkUpdateResource(opcode){
     var canUpdate = true
     var keys = Object.keys(upgradeRegister[opcode].resource);
     keys.forEach(function(key, index) {
-        if(resource[key] < upgradeRegister[opcode].resource[key].basic * Math.pow(upgradeRegister[opcode].resource[key].basic,upgrades[opcode])){
+        if(resource[key] < Math.floor(upgradeRegister[opcode].resource[key].basic * Math.pow(upgradeRegister[opcode].resource[key].mul,upgrades[opcode]))){
             canUpdate = false;
         }
     });
