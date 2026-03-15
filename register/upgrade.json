@@ -7,7 +7,7 @@
             }
         },
         "color":"#ffffff",
-        "affect":{
+        "effect":{
             "click":"1"
         }
     },
@@ -19,8 +19,8 @@
             }
         },
         "color":"#ffffff",
-        "affect":{
-            "autoclick":"1"
+        "effect":{
+            "point":"1"
         }
     }
 }

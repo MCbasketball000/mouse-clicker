@@ -87,7 +87,9 @@ function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content,
 function use(opcode){
     if(opcode == 'press'){
         resource['point'] += 1;
-        document.getElementById("pointresource").innerHTML=resource['point'];
+        if(upgradeEffect.click != undefined){
+            resource['point'] += upgradeEffect.click;
+        }
     }
     if(opcode == 'author'){
         window.open('https://space.bilibili.com/3546613752531863?spm_id_from=333.1369.0.0', '_blank');
@@ -110,7 +112,6 @@ function deleteresource(opcode){
     keys.forEach(function(key, index) {
         resource[key] -= Math.floor(upgradeRegister[opcode].resource[key].basic * Math.pow(upgradeRegister[opcode].resource[key].mul,upgrades[opcode]));
     });
-    updateResource();
 }
 function checkUpdateResource(opcode){
     var canUpdate = true
@@ -161,13 +162,26 @@ function checkUpgrades(){
     });
 }
 function addresource(){
-    var keys = Object.keys(upgrades);
+    var keys = Object.keys(upgradeEffect);
     keys.forEach(function(key, index) {
-        if(upgrades[key] == undefined){
-            resource[key] = 0;
+        if(resource[key] != undefined){
+            resource[key] += upgradeEffect[key];
         }
     });
-}    
+}
+function updatecheck(){
+    upgradeEffect = {};
+    var keys = Object.keys(upgrades);
+    keys.forEach(function(key, index) {
+        var keys2 = Object.keys(upgradeRegister[key].effect);
+        keys2.forEach(function(key2, index) {
+            if(upgradeEffect[key2] == undefined){
+                upgradeEffect[key2] = 0;
+            }
+            upgradeEffect[key2] += upgradeRegister[key].effect[key2] * upgrades[key];
+        });
+    });
+}        
 async function main(){
     //存档部分（本来想单独写成一个文件的但是不会导入就算了
     function load(){
@@ -204,15 +218,22 @@ async function main(){
     refreshbutton();
     refreshResourse();
     while(true){
+        updatecheck()
         addresource()
-        updateResource();
         save();
         await wait(1000);
+    }
+}
+async function loop(){
+    while(true){
+        updateResource();
+        await wait(100);
     }
 }
 async function run(){
     initall();
     await initregister();
     main();
+    loop()
 }
 run();
