@@ -97,6 +97,14 @@ function use(opcode){
     if(opcode == 'github'){
         window.open('https://github.com/MCbasketball000/mouse-clicker', '_blank');
     }
+    if(opcode == 'reset'){
+        if(window.confirm("确定重置？这会重置你的前两个升级和所有点数，而你将获得"+String(Math.floor(resource.point / 100))+"重置点")){
+            resource.resetpoint += Math.floor(resource.point / 100)
+            resource.point = 0;
+            upgrades.click = 0;
+            upgrades.autoclick = 0;
+        }
+    }
     if(upgradeList.includes(opcode)){
         try2upgrade(opcode);
     }
@@ -126,6 +134,7 @@ function checkUpdateResource(opcode){
 function refreshbutton(){
     upgradeList = [];
     CreateElementBy("button",1,40,40,'press','#ffffff',200,300,undefined,'%');
+    CreateElementBy("button",2,5,5,'reset','#ff0000',40,60,undefined,'px');
     var keys = Object.keys(upgradeRegister);
     keys.forEach(function(key, index) {
         upgradeList.push(key);
@@ -212,9 +221,6 @@ async function main(){
     if(haveData != 'true'){
         init();
     }
-    //-------------------------------------------------//
-
-    
     refreshbutton();
     refreshResourse();
     while(true){
