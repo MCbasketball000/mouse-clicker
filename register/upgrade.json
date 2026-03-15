@@ -2,7 +2,7 @@
     "click":{
         "resource":{
             "point":{
-                "basic":"100",
+                "basic":"20",
                 "mul":"1.1"
             }
         },
@@ -14,7 +14,7 @@
     "autoclick":{
         "resource":{
             "point":{
-                "basic":"500",
+                "basic":"100",
                 "mul":"1.1"
             }
         },
