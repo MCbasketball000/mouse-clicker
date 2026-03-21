@@ -92,6 +92,9 @@ function use(opcode){
         if(upgradeEffect.click != undefined){
             resource['point'] += upgradeEffect.click;
         }
+        if(Math.floor(RandomNum(1,100)) <= upgradeEffect.gemclick){
+            resource['gem'] += 1;
+        }
     }
     if(opcode == 'author'){
         window.open('https://space.bilibili.com/3546613752531863?spm_id_from=333.1369.0.0', '_blank');
@@ -180,6 +183,11 @@ function addresource(){
     keys.forEach(function(key, index) {
         if(resource[key] != undefined){
             resource[key] += upgradeEffect[key];
+            if(key == 'point'){
+                if(Math.floor(RandomNum(1,100)) <= upgradeEffect.gemautoclick){
+                    resource['gem'] += 1;
+                }
+            }
         }
     });
 }
