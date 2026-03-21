@@ -6,5 +6,7 @@
     "autoclick":"自动点击",
     "reset":"重置",
     "resetclick":"点击升级2",
-    "resetautoclick":"自动点击2"
+    "resetautoclick":"自动点击2",
+    "gem":"宝石",
+    "electric":"能量"
 }

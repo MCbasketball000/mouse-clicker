@@ -4,5 +4,11 @@
     },
     "resetpoint":{
         "color":"#ff0000"
+    },
+    "gem":{
+        "color":"#f84dff"
+    },
+    "electric":{
+        "color":"#ffe866"
     }
 }

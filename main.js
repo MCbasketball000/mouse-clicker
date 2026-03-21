@@ -141,7 +141,7 @@ function refreshbutton(){
     var keys = Object.keys(upgradeRegister);
     keys.forEach(function(key, index) {
         upgradeList.push(key);
-        CreateElementBy("button",1,100+index*75,15,key,upgradeRegister[key].color,45,120)
+        CreateElementBy("button",1,200+index*75,15,key,upgradeRegister[key].color,45,120)
     });
 }
 function refreshResourse(){
