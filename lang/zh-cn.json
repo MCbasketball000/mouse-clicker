@@ -8,5 +8,7 @@
     "resetclick":"点击升级2",
     "resetautoclick":"自动点击2",
     "gem":"宝石",
-    "electric":"能量"
+    "electric":"能量",
+    "gemget":"宝石点击",
+    "gemautoget":"宝石自动点击"
 }

@@ -46,5 +46,37 @@
         "effect":{
             "point":"10"
         }
+    },
+    "gemget":{
+        "resource":{
+            "resetpoint":{
+                "basic":"25",
+                "mul":"2"
+            },
+            "point":{
+                "basic":"500",
+                "mul":"4"
+            }
+        },
+        "color":"#f84dff",
+        "effect":{
+            "gemclick":"1"
+        }
+    },
+    "gemautoget":{
+        "resource":{
+            "resetpoint":{
+                "basic":"100",
+                "mul":"2"
+            },
+            "point":{
+                "basic":"1145",
+                "mul":"4"
+            }
+        },
+        "color":"#f84dff",
+        "effect":{
+            "gemautoclick":"1"
+        }
     }
 }

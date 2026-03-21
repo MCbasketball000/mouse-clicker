@@ -17,7 +17,9 @@ async function initregister()
     upgradeRegister = await response3.json()
     return 0;
 }
-
+function RandomNum(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 function CreateElementBy(type,pos,pos1,pos2,opcode,color,lengthz,widthz,content,postype){
     var newDiv = document.createElement(type);
@@ -141,7 +143,7 @@ function refreshbutton(){
     var keys = Object.keys(upgradeRegister);
     keys.forEach(function(key, index) {
         upgradeList.push(key);
-        CreateElementBy("button",1,200+index*75,15,key,upgradeRegister[key].color,45,120)
+        CreateElementBy("button",1,200+index*75,15,key,upgradeRegister[key].color,45,160)
     });
 }
 function refreshResourse(){
