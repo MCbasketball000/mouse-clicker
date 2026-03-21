@@ -2,11 +2,11 @@ function initall(){
     document.body.style.backgroundColor = "#101010";
     CreateElementBy("div",4,0,0,'author','#ffffff',NaN,NaN,'作者：MC篮球');
     CreateElementBy("div",4,0,250,'github','#a8da99',NaN,NaN,'Github');
+    CreateElementBy("div",4,0,400,'qq','#ccda99',NaN,NaN,'点击加入qq群：1061107601');
 }
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-//一些乱七八糟的读取
 async function initregister()
 {
     const response = await fetch("./register/resource.json");
@@ -96,6 +96,9 @@ function use(opcode){
     }
     if(opcode == 'github'){
         window.open('https://github.com/MCbasketball000/mouse-clicker', '_blank');
+    }
+    if(opcode == 'qq'){
+        window.open('https://qm.qq.com/q/TETg6zL52S', '_blank');
     }
     if(opcode == 'reset'){
         if(window.confirm("确定重置？这会重置你的前两个升级和所有点数，而你将获得"+String(Math.floor(resource.point / 100))+"重置点")){
@@ -192,7 +195,6 @@ function updatecheck(){
     });
 }        
 async function main(){
-    //存档部分（本来想单独写成一个文件的但是不会导入就算了
     function load(){
         haveData = localStorage.getItem("haveData");
         resource = JSON.parse(localStorage.getItem("resource"));
