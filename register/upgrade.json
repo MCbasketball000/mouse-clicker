@@ -22,5 +22,29 @@
         "effect":{
             "point":"1"
         }
+    },
+    "resetclick":{
+        "resource":{
+            "resetpoint":{
+                "basic":"1",
+                "mul":"2"
+            }
+        },
+        "color":"#ff0000",
+        "effect":{
+            "click":"10"
+        }
+    },
+    "resetautoclick":{
+        "resource":{
+            "resetpoint":{
+                "basic":"4",
+                "mul":"2"
+            }
+        },
+        "color":"#ff0000",
+        "effect":{
+            "point":"10"
+        }
     }
 }
