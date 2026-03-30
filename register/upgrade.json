@@ -78,5 +78,37 @@
         "effect":{
             "gemautoclick":"1"
         }
+    },
+    "electricget":{
+        "resource":{
+            "resetpoint":{
+                "basic":"100",
+                "mul":"2"
+            },
+            "point":{
+                "basic":"1145",
+                "mul":"4"
+            }
+        },
+        "color":"#f84dff",
+        "effect":{
+            "gemautoclick":"1"
+        }
+    },
+    "electricuse":{
+        "resource":{
+            "resetpoint":{
+                "basic":"100",
+                "mul":"2"
+            },
+            "point":{
+                "basic":"1145",
+                "mul":"4"
+            }
+        },
+        "color":"#f84dff",
+        "effect":{
+            "gemautoclick":"1"
+        }
     }
 }

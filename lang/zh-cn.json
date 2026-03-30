@@ -10,5 +10,7 @@
     "gem":"宝石",
     "electric":"能量",
     "gemget":"宝石点击",
-    "gemautoget":"宝石自动点击"
+    "gemautoget":"宝石自动点击",
+    "electricget":"发电机",
+    "electricuse":"电动倍增器"
 }
