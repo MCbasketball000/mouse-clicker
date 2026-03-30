@@ -82,33 +82,37 @@
     "electricget":{
         "resource":{
             "resetpoint":{
-                "basic":"100",
-                "mul":"2"
-            },
-            "point":{
-                "basic":"1145",
+                "basic":"1000",
                 "mul":"4"
+            },
+            "gem":{
+                "basic":"1",
+                "mul":"2"
             }
         },
-        "color":"#f84dff",
+        "color":"#ffe866",
         "effect":{
-            "gemautoclick":"1"
+            "electric":"10"
         }
     },
     "electricuse":{
         "resource":{
             "resetpoint":{
-                "basic":"100",
+                "basic":"1000",
+                "mul":"4"
+            },
+            "gem":{
+                "basic":"1",
                 "mul":"2"
             },
-            "point":{
-                "basic":"1145",
-                "mul":"4"
+            "electric":{
+                "basic":"500",
+                "mul":"1.5"
             }
         },
-        "color":"#f84dff",
+        "color":"#ffe866",
         "effect":{
-            "gemautoclick":"1"
+            "electricuse":"1"
         }
     }
 }
