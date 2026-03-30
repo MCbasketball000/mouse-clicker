@@ -186,7 +186,8 @@ function addresource(){
             if(key == 'point'){
                 if(Math.floor(RandomNum(1,100)) <= upgradeEffect.gemautoclick){
                     resource['gem'] += 1;
-                }
+                };
+                resource[key] += Math.ceil(upgradeEffect[key] * upgradeEffect.electricuse * resource.electric / 10000);
             }
         }
     });
